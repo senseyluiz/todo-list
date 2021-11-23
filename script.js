@@ -3,6 +3,8 @@ let criaTarefa = document.querySelector("#criar-tarefa");
 let inputTarefa = document.querySelector("#texto-tarefa");
 let limpar = document.querySelector("#apaga-tudo");
 let btnFinalizados = document.querySelector("#remover-finalizados");
+let btnSalvar = document.querySelector("#salvar-tarefas");
+let btnRemover = document.querySelector("#remover-selecionado");
 
 
 //Criando as tarefas para ser adicionadas na lista de tarefas
@@ -55,6 +57,41 @@ btnFinalizados.addEventListener("click", function() {
         if (tarefas[i].className === "completed") {
             tarefas[i].remove();
         }
+    }
+
+})
+
+
+
+
+//Criando função para salvar tarefas
+btnSalvar.addEventListener("click", function() {
+    let valor = lista.children.length
+    localStorage.setItem("quantidade", valor);
+    for (let i = 0; i < lista.children.length; i += 1) {
+        let valor1 = lista.children[i].innerText;
+        let chave = `li${i}`;
+        localStorage.setItem(chave, valor1);
+    }
+})
+
+// for (i = 0; i < localStorage.valor; i++) {
+//     let liSalva = localStorage.getItem(`li${i}`);
+//     let criaLi = document.createElement('li');
+//     criaLi.innerText = liSalva;
+//     lista.appendChild(criaLi);
+
+// }
+
+
+
+//Criando função do botao remover selecionados
+btnRemover.addEventListener("click", function() {
+    for (i = 0; i < lista.children.length; i++) {
+        if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
+            lista.children[i].remove();
+        }
+
     }
 
 })
