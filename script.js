@@ -9,7 +9,7 @@ criaTarefa.addEventListener("click", function() {
     tarefa.innerText = inputTarefa.value;
     inputTarefa.value = "";
     lista.appendChild(tarefa);
-    console.log(lista);
+
 })
 
 
@@ -23,4 +23,17 @@ lista.addEventListener("click", function(e) {
             lista.children[i].removeAttribute("style");
         }
     }
+})
+
+
+//Adicionando efeito taxado na tarefa clicada 2 vezes
+lista.addEventListener("dblclick", function(e) {
+
+    if (e.target.className === "completed") {
+        e.target.className = "";
+    } else {
+        e.target.classList.add("completed")
+    }
+    console.log(e.target.className)
+
 })
