@@ -16,4 +16,11 @@ criaTarefa.addEventListener("click", function() {
 //Adiciona cor de fundo no elemento clicado
 lista.addEventListener("click", function(e) {
     e.target.style.backgroundColor = "rgb(128, 128, 128)"
+
+    //Verifica se existe outro atributo selecionado;
+    for (i = 0; i < lista.children.length; i++) {
+        if (lista.children[i].innerText !== e.target.innerText) {
+            lista.children[i].removeAttribute("style");
+        }
+    }
 })
