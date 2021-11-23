@@ -12,6 +12,8 @@ criaTarefa.addEventListener("click", function() {
     console.log(lista);
 })
 
+
+//Adiciona cor de fundo no elemento clicado
 lista.addEventListener("click", function(e) {
     e.target.style.backgroundColor = "rgb(128, 128, 128)"
 })
