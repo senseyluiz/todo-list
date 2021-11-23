@@ -1,6 +1,7 @@
 let lista = document.querySelector("#lista-tarefas")
 let criaTarefa = document.querySelector("#criar-tarefa");
 let inputTarefa = document.querySelector("#texto-tarefa");
+let limpar = document.querySelector("#apaga-tudo");
 
 
 //Criando as tarefas para ser adicionadas na lista de tarefas
@@ -36,4 +37,12 @@ lista.addEventListener("dblclick", function(e) {
     }
     console.log(e.target.className)
 
+})
+
+//Criando função do botão para apagar tarefas
+limpar.addEventListener("click", function() {
+    let tarefas = document.querySelectorAll('li');
+    for (i = 0; i < tarefas.length; i++) {
+        tarefas[i].remove();
+    }
 })
