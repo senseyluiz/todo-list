@@ -2,6 +2,7 @@ let lista = document.querySelector("#lista-tarefas")
 let criaTarefa = document.querySelector("#criar-tarefa");
 let inputTarefa = document.querySelector("#texto-tarefa");
 let limpar = document.querySelector("#apaga-tudo");
+let btnFinalizados = document.querySelector("#remover-finalizados");
 
 
 //Criando as tarefas para ser adicionadas na lista de tarefas
@@ -45,4 +46,15 @@ limpar.addEventListener("click", function() {
     for (i = 0; i < tarefas.length; i++) {
         tarefas[i].remove();
     }
+})
+
+//Criando a função do botão para apagar finalizados
+btnFinalizados.addEventListener("click", function() {
+    let tarefas = document.querySelectorAll("li");
+    for (i = 0; i < tarefas.length; i++) {
+        if (tarefas[i].className === "completed") {
+            tarefas[i].remove();
+        }
+    }
+
 })
