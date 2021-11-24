@@ -78,14 +78,7 @@ btnSalvar.addEventListener("click", function() {
     localStorage.setItem("tarefas", arrayString);
 })
 
-// Criando função do botao remover selecionados
-btnRemover.addEventListener("click", function() {
-    for (let i = 0; i < lista.children.length; i++) {
-        if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
-            lista.children[i].remove();
-        }
-    }
-})
+
 
 let storageTarefa = localStorage.getItem("tarefas")
 console.log(storageTarefa);
@@ -99,3 +92,12 @@ for (let i = 0; i < tarefas.length; i++) {
     criaLi.className = tarefas[i]["classe"];
     lista.appendChild(criaLi);
 };
+
+// Criando função do botao remover selecionados
+btnRemover.addEventListener("click", function() {
+    for (let i = 0; i < lista.children.length; i++) {
+        if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
+            lista.children[i].remove();
+        }
+    }
+})
