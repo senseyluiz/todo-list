@@ -78,9 +78,7 @@ btnSalvar.addEventListener("click", function() {
     localStorage.setItem("tarefas", arrayString);
 })
 
-
-
-//Criando função do botao remover selecionados
+// Criando função do botao remover selecionados
 btnRemover.addEventListener("click", function() {
     for (let i = 0; i < lista.children.length; i++) {
         if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
@@ -89,15 +87,15 @@ btnRemover.addEventListener("click", function() {
     }
 })
 
+let storageTarefa = localStorage.getItem("tarefas")
+console.log(storageTarefa);
+let tarefas = JSON.parse(storageTarefa || "[]"); // utilizado como referencia o site https://stackoverflow.com/questions/43762363/how-to-store-an-array-of-objects-in-local-storage 
+console.log(tarefas);
 
-let tarefas = JSON.parse(localStorage.getItem("tarefas"));
-
-
-window.onload = function() {
-    tarefas.array.forEach(element => {
-        let criaLi = document.createElement('li');
-        criaLi.innerText = element["valor"];
-        criaLi.className = element["classe"];
-        lista.appendChild(criaLi);
-    });
-}
+for (let i = 0; i < tarefas.length; i++) {
+    const criaLi = document.createElement('li');
+    console.log(tarefas[i]["valor"])
+    criaLi.innerText = tarefas[i]["valor"];
+    criaLi.className = tarefas[i]["classe"];
+    lista.appendChild(criaLi);
+};
