@@ -5,6 +5,8 @@ let limpar = document.querySelector("#apaga-tudo");
 let btnFinalizados = document.querySelector("#remover-finalizados");
 let btnSalvar = document.querySelector("#salvar-tarefas");
 let btnRemover = document.querySelector("#remover-selecionado");
+let btnMoverCima = document.querySelector("#mover-cima");
+let btnMoverBaixo = document.querySelector("#mover-baixo")
 
 
 //Criando as tarefas para ser adicionadas na lista de tarefas
@@ -78,20 +80,59 @@ btnSalvar.addEventListener("click", function() {
     localStorage.setItem("tarefas", arrayString);
 })
 
-
-
+// Restaurando estado atual após refresh do navegador
 let storageTarefa = localStorage.getItem("tarefas")
-console.log(storageTarefa);
+
 let tarefas = JSON.parse(storageTarefa || "[]"); // utilizado como referencia o site https://stackoverflow.com/questions/43762363/how-to-store-an-array-of-objects-in-local-storage 
-console.log(tarefas);
+
 
 for (let i = 0; i < tarefas.length; i++) {
     const criaLi = document.createElement('li');
-    console.log(tarefas[i]["valor"])
+
     criaLi.innerText = tarefas[i]["valor"];
     criaLi.className = tarefas[i]["classe"];
     lista.appendChild(criaLi);
 };
+
+// Criando função para mover elemento selecionado para cima
+// Feito com ajuda de Douglas Marcal e Eric da mentoria
+
+btnMoverCima.addEventListener("click", function(elemento) {
+    let lista2 = document.querySelector("#lista-tarefas")
+    console.log(lista2)
+    for (let i = lista2.children.length - 1; i > 0; i -= 1) {
+
+
+        if (lista2.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
+            let atual = lista2.children[i];
+            let proximo = lista2.children[i].previousElementSibling
+            if (atual) {
+                lista2.insertBefore(atual, proximo);
+            }
+            break
+        }
+    }
+})
+
+
+
+// Criando função para mover elemento selecionado para baixo
+
+// Feito com ajuda de Douglas Marcal e Eric da mentoria
+btnMoverBaixo.addEventListener("click", function(elemento) {
+    for (let i = lista.children.length - 1; i >= 0; i -= 1) {
+        if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
+            let atual = lista.children[i];
+            let proximo = lista.children[i].nextElementSibling
+            if (proximo) {
+                lista.insertBefore(proximo, atual);
+            }
+            break
+        }
+    }
+})
+
+
 
 // Criando função do botao remover selecionados
 btnRemover.addEventListener("click", function() {
