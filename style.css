@@ -1,3 +1,66 @@
+:root {
+    --corTexto: #3d405b;
+    --corFundo: #f4f1de;
+    --corFundoTarefas: #e07a5f;
+    --corBotao: #81b29a;
+}
+
+body {
+    background-color: var(--corFundo);
+}
+
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+header {
+    width: 90%;
+    max-width: 500;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--corTexto);
+}
+
+p {
+    font-size: 20px;
+}
+
+input {
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+#criar-tarefa {
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: var(--corTexto);
+}
+
+main {
+    width: 500px;
+    max-width: 500;
+    margin: 20px auto;
+    background-color: var(--corFundoTarefas);
+    padding: 10px;
+    border-radius: 10px
+}
+
+ol {
+    min-height: 200px;
+}
+
+li {
+    background-color: var(--corBotao);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button {
+    background-color: var(--corTexto);
+    border-radius: 5px;
+    color: var(--corFundo);
+}
+
+main button {
+    height: 30px;
 }

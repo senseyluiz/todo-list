@@ -101,8 +101,6 @@ btnMoverCima.addEventListener("click", function(elemento) {
     let lista2 = document.querySelector("#lista-tarefas")
     console.log(lista2)
     for (let i = lista2.children.length - 1; i > 0; i -= 1) {
-
-
         if (lista2.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
             let atual = lista2.children[i];
             let proximo = lista2.children[i].previousElementSibling
