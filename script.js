@@ -66,32 +66,38 @@ btnFinalizados.addEventListener("click", function() {
 
 //Criando função para salvar tarefas
 btnSalvar.addEventListener("click", function() {
-    let valor = lista.children.length
-    localStorage.setItem("quantidade", valor);
+    let arrayObjeto = [];
+
     for (let i = 0; i < lista.children.length; i += 1) {
-        let valor1 = lista.children[i].innerText;
-        let chave = `li${i}`;
-        localStorage.setItem(chave, valor1);
+        let valor = lista.children[i].innerText;
+        let classe = lista.children[i].className;
+        arrayObjeto.push({ valor, classe });
     }
+
+    let arrayString = JSON.stringify(arrayObjeto) // transforma o arrayObjeto em um string unica para salvar no localStorage
+    localStorage.setItem("tarefas", arrayString);
 })
-
-// for (i = 0; i < localStorage.valor; i++) {
-//     let liSalva = localStorage.getItem(`li${i}`);
-//     let criaLi = document.createElement('li');
-//     criaLi.innerText = liSalva;
-//     lista.appendChild(criaLi);
-
-// }
 
 
 
 //Criando função do botao remover selecionados
 btnRemover.addEventListener("click", function() {
-    for (i = 0; i < lista.children.length; i++) {
+    for (let i = 0; i < lista.children.length; i++) {
         if (lista.children[i].style.backgroundColor === "rgb(128, 128, 128)") {
             lista.children[i].remove();
         }
-
     }
-
 })
+
+
+let tarefas = JSON.parse(localStorage.getItem("tarefas"));
+
+
+window.onload = function() {
+    tarefas.array.forEach(element => {
+        let criaLi = document.createElement('li');
+        criaLi.innerText = element["valor"];
+        criaLi.className = element["classe"];
+        lista.appendChild(criaLi);
+    });
+}
