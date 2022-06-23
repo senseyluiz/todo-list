@@ -16,7 +16,11 @@
 
 ###
 
-<p align="left">Adicionar uma nova tarefa<br>Editar tarefa<br>Marcar tarefa já feitas<br>Excluir uma tarefa<br>Excluir tarefas marcadas</p>
+* Adicionar uma nova tarefa
+* Editar tarefa
+* Marcar tarefa já feitas
+* Excluir uma tarefa
+* Excluir tarefas marcadas
 
 ###
 
@@ -36,11 +40,19 @@
 
 ###
 
+<div align='center'>
+  <a href = 'https://listadetarefas-crud.netlify.app/' target='_blank'> Lista de Tarefas <a>
+</div>
+
+###
+
 <div align="center">
   <img height="200" src="listaDeTarefas.png"  />
 </div>
 
 ###
+
+
 
 <div align="center">
   <a href="https://www.linkedin.com/in/luishrocha/" target="_blank">
