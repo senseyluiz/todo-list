@@ -41,7 +41,7 @@
 ###
 
 <div align='center'>
-  <a href = 'https://listadetarefas-crud.netlify.app/' target='_blank'> Lista de Tarefas <a>
+  <a href = 'https://listadetarefas-crud.netlify.app/' target="_blank"> Lista de Tarefas <a>
 </div>
 
 ###
