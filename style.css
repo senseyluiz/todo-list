@@ -53,6 +53,9 @@ li {
     background-color: var(--corBotao);
     border-radius: 5px;
     margin: 5px;
+    padding-left: 10px;
+    color: var(--corFundo);
+    font-size: 20px;
 }
 
 button {
